@@ -1,12 +1,12 @@
 const http = require("http")
 const express = require("express")
 const app = express()
-
+const port = process.env.PORT || 2000
 const server = http.createServer(app)
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
-server.listen(2000, () => {
+server.listen(port, () => {
     console.log("Server is running at port: 2000")
 })
 
