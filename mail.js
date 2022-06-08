@@ -13,7 +13,7 @@ router.post("/mail", (req, res, next) => {
         service: 'gmail',
         auth: {
           user: 'vr54640@gmail.com',
-          pass: '743224aA'
+          pass: 'ppcwkmrokhlhbqtn'
         }
       });
       
