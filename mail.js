@@ -4,12 +4,12 @@ const router = express.Router()
 
 
 router.post("/mail", (req, res, next) => {
-    console.log("Mail response...", req.body)
+    console.log("Mail response...", req.body.phone.length)
     let name = req.body.name
     let email = req.body.email
     let phone = req.body.phone
-
-    var transporter = nodemailer.createTransport({
+    if (req.body.phone.length == '10') {
+      var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
           user: 'vr54640@gmail.com',
@@ -32,6 +32,9 @@ router.post("/mail", (req, res, next) => {
         //   console.log('Email sent: ' + info.response);
         }
       });
+    } else {
+      res.json({message: "Phone Not Valid"})
+    }
 })
 
 module.exports = router
